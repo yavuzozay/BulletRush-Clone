@@ -10,4 +10,10 @@ public class BigEnemy : Enemy
         //Big Enemy Movement
         
     }
+
+    private void OnDestroy()
+    {
+        SpawnManager.Instance.DecreaseBigEnemyCount(1);
+        base.OnDestroy();
+    }
 }

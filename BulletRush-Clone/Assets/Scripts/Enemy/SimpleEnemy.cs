@@ -8,6 +8,10 @@ public class SimpleEnemy : Enemy
     {
         //Simple enemy movement
     }
-
+    private void OnDestroy()
+    {
+        SpawnManager.Instance.DecreaseSimpleEnemyCount(1);
+        base.OnDestroy();
+    }
 
 }

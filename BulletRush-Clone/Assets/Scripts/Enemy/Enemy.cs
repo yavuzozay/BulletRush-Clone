@@ -27,7 +27,7 @@ public abstract class Enemy : MonoBehaviour
             Destroy(this.gameObject, .35f);
     }
     //Patlama efekti
-    private void OnDestroy()
+    public virtual void OnDestroy()
     {
         Instantiate(particleEffect, transform.position, particleEffect.transform.rotation);
     }

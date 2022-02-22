@@ -11,4 +11,10 @@ public static class EventManager
     public static event Action<float> OnScoreChanged;
     public static void Fire_OnScoreChanged(float currentScore) { OnScoreChanged?.Invoke(currentScore); }
 
+    public static event Action<int> OnSimpleEnemyCountChanged;
+    public static void Fire_OnSimpleEnemyCountChanged(int simpleEnemyCount) { OnSimpleEnemyCountChanged?.Invoke(simpleEnemyCount); }
+    
+    public static event Action<int> OnBigEnemyCountChanged;
+    public static void Fire_OnBigEnemyCountChanged(int bigEnemyCount) { OnBigEnemyCountChanged?.Invoke(bigEnemyCount); }
+
 }
