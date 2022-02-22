@@ -23,13 +23,23 @@ public class SpawnManager : Singleton<SpawnManager>
     {
         _simpleEnemyCount -= amount;
         EventManager.Fire_OnSimpleEnemyCountChanged(_simpleEnemyCount);
-       
+        CheckEnemyCount();
+
+
     }
     public void DecreaseBigEnemyCount(int amount)
     {
         _bigEnemyCount -= amount;
         EventManager.Fire_OnBigEnemyCountChanged(_bigEnemyCount);
+        CheckEnemyCount();
 
+    }
+    private void CheckEnemyCount()
+    {
+        if (_simpleEnemyCount <= 0 && _bigEnemyCount <= 0)
+        {
+            EventManager.Fire_OnLevelCompleted();
+        }
     }
 
     private void Start()
@@ -40,7 +50,6 @@ public class SpawnManager : Singleton<SpawnManager>
     }
     private void Update()
     {
-        Debug.Log(simpleEnemyCount);
     }
     public void SpawnEnemy(int level)
     {

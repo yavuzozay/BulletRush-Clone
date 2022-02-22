@@ -8,8 +8,8 @@ public static class EventManager
     public static event Action OnGameOver;
     public static void Fire_OnGameOver() { OnGameOver?.Invoke(); }
 
-    public static event Action<float> OnScoreChanged;
-    public static void Fire_OnScoreChanged(float currentScore) { OnScoreChanged?.Invoke(currentScore); }
+    public static event Action OnLevelCompleted;
+    public static void Fire_OnLevelCompleted() { OnLevelCompleted?.Invoke(); }
 
     public static event Action<int> OnSimpleEnemyCountChanged;
     public static void Fire_OnSimpleEnemyCountChanged(int simpleEnemyCount) { OnSimpleEnemyCountChanged?.Invoke(simpleEnemyCount); }
