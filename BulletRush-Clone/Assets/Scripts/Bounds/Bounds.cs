@@ -27,7 +27,7 @@ public class Bounds : Singleton<Bounds>
     private void Awake()
     {
        GameBounds= new Bound(15f, -15f, 5f, -15f);
-       PlayerBounds= new Bound(8f, -8f, 0f, -6f);
+       PlayerBounds= new Bound(8f, -8f, 3f, -8f);
     }
 
     public Bound GetGameBounds()
