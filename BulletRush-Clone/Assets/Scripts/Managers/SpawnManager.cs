@@ -50,10 +50,7 @@ public class SpawnManager : Singleton<SpawnManager>
         // Test Function
          
     }
-    private void Update()
-    {
-      //  Debug.Log("k" + _simpleEnemyCount + "b" + _bigEnemyCount);
-    }
+ 
     public void SpawnEnemy(int level)
     {
        

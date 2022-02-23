@@ -111,7 +111,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _healValue: 200
-  _speed: 6
+  _speed: 5
   emptyTargetPrefb: {fileID: 6502138064977469394, guid: 561375c805dfa0349bf7474cb39c8883, type: 3}
   curTarget: 0
 --- !u!95 &682583126946665830

@@ -18,7 +18,6 @@ public class PlayerController : MonoBehaviour
         playerRb = GetComponent<Rigidbody>();
     }
 
-    // Update is called once per frame
     void Update()
     {
         CheckInputs();
@@ -39,7 +38,7 @@ public class PlayerController : MonoBehaviour
 
 
     }
-   
+
     private void ApplyMovement()
     {
         playerRb.velocity = new Vector3(horizontalInput, 0, verticalInput)*PlayerData.Instance.GetSpeed();//Vektörün sabitle çarðýmý..
@@ -98,7 +97,7 @@ public class PlayerController : MonoBehaviour
 
         }
 
-        transform.rotation = Quaternion.Lerp(transform.rotation, rot, Time.fixedDeltaTime);
+        transform.rotation = Quaternion.Lerp(transform.rotation, rot, Time.fixedDeltaTime*rotSpeed);
     }
     private float NormalizeInput(float input)
     {

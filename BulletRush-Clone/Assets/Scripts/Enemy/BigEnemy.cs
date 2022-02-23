@@ -36,13 +36,13 @@ public class BigEnemy : Enemy
             return;
         }
         float dist = Vector3.Distance(transform.position, targets[0].position);
-        targetPos = Vector3.MoveTowards(transform.position,targets[0].position , Time.fixedDeltaTime / 10 * _speed);
+        targetPos = Vector3.Lerp(transform.position,targets[0].position , Time.fixedDeltaTime * _speed/10);
         enemyRb.MovePosition(targetPos);
 
         if (curTarget < targets.Count - 1)
         {
 
-            if (dist < .25)
+            if (dist < 1)
             {
                 Destroy(targets[0].gameObject);
                 targets.RemoveAt(0);

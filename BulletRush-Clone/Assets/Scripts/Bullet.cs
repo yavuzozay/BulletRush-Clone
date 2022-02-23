@@ -28,7 +28,7 @@ public class Bullet : MonoBehaviour
        * Ýmpulse modu tek seferlik güç uygulanacaðýnda kullanýlýr.
        * Zýplama,fýrlatma gibi durumlar için tercih edilebilir.
        */
-        bulletRb.AddForce(transform.forward, ForceMode.Impulse);
+        bulletRb.AddForce(transform.forward*power, ForceMode.Impulse);
     }
 
 

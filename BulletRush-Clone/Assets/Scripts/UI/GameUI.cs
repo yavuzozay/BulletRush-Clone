@@ -9,10 +9,13 @@ public class GameUI : MonoBehaviour
     private GameObject GameOverPanel, LevelCompletedPanel;
     private TextMeshProUGUI sEnemyCountTMPro, bEnemyCountTMPro,lvlTMpro;
     private Button nextLevelBtn,restrartBtn;
+    private GameObject joystick,firebutton;
     private void Awake()
     {
         InGamePanel = transform.GetChild(0).gameObject;
         GameOverPanel = transform.GetChild(1).gameObject;
+        joystick = transform.GetChild(3).gameObject;
+        firebutton = transform.GetChild(4).gameObject;
         restrartBtn = GameOverPanel.transform.GetChild(0).gameObject.GetComponent<Button>();
         LevelCompletedPanel = transform.GetChild(2).gameObject;
         nextLevelBtn = LevelCompletedPanel.transform.GetChild(0).gameObject.GetComponent<Button>();
@@ -34,6 +37,8 @@ public class GameUI : MonoBehaviour
     }
     private void LoadNextLevel()
     {
+        joystick.SetActive(true);
+        firebutton.SetActive(true);
         PlayerData.Instance.gameObject.SetActive(true);
         GameOverPanel.SetActive(false);
         InGamePanel.SetActive(true);
@@ -54,14 +59,16 @@ public class GameUI : MonoBehaviour
     }
     private void OnLevelCompleted()
     {
+        joystick.SetActive(false);
+        firebutton.SetActive(false);
         InGamePanel.SetActive(false);
-        PlayerData.Instance.gameObject.SetActive(false);
-
         GameManager.Instance.IncreaseLevel();
         LevelCompletedPanel.gameObject.SetActive(true);
     }
     private void OnGameOver()
     {
+        joystick.SetActive(false);
+        firebutton.SetActive(false);
         InGamePanel.SetActive(false);
         GameOverPanel.SetActive(true);
     }

@@ -11,17 +11,30 @@ public class PlayerCombatController : MonoBehaviour
    
     PlayerController playerController;
 
+
+    //Player States
+    private Animator animator;
+    private bool isIdle = true;
+    private bool isAttacking = false;
+
     private void Awake()
     {
         playerController = GetComponent<PlayerController>();
         attackTransform = transform.GetChild(0);
-        
+        animator = GetComponent<Animator>();
+
+
     }
 
 
     private void Start()
     {
 
+    }
+
+    private void Update()
+    {
+        UpdateAnims();
     }
     private void OnCollisionEnter(Collision collision)
     {
@@ -34,14 +47,29 @@ public class PlayerCombatController : MonoBehaviour
     {
         FireAttack();
     }
+
+   
+    private void UpdateAnims()
+    {
+        animator.SetBool("isIdle", isIdle);
+        animator.SetBool("isAttacking", isAttacking);
+    }
     private void FireAttack()
     {
 
         if (canAttack&&playerController.isFireBtnPressed)
         {
+
+            isAttacking = true;
+            isIdle = false;
              canAttack = false;
              Instantiate(bullet, attackTransform.position, transform.rotation);
              StartCoroutine(AttackTimer());
+        }
+        else if (!playerController.isFireBtnPressed)
+        {
+            isIdle = true;
+            isAttacking = false;
         }
 
     }
@@ -50,7 +78,7 @@ public class PlayerCombatController : MonoBehaviour
 
         //.25 saniye sonra tekrar atak yapabilir...
         
-            yield return new WaitForSeconds(.25f);
+            yield return new WaitForSeconds(.15f);
             canAttack = true;
 
     }
