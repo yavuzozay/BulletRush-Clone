@@ -8,14 +8,14 @@ public class PlayerCombatController : MonoBehaviour
     [SerializeField]private bool canAttack = true;
     [SerializeField]private GameObject bullet;
     private Transform attackTransform;
-    private Vector3 bulletSpawnPos;
+   
     PlayerController playerController;
 
     private void Awake()
     {
         playerController = GetComponent<PlayerController>();
         attackTransform = transform.GetChild(0);
-        bulletSpawnPos = attackTransform.position;
+        
     }
 
 
@@ -39,7 +39,7 @@ public class PlayerCombatController : MonoBehaviour
         if (canAttack&&playerController.isFireBtnPressed)
         {
             canAttack = false;
-            Instantiate(bullet, bulletSpawnPos, bullet.transform.rotation);
+            Instantiate(bullet, attackTransform.position, bullet.transform.rotation);
             StartCoroutine(AttackTimer());
 
 

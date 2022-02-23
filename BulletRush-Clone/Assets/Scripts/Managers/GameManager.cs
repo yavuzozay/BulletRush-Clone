@@ -31,6 +31,7 @@ public class GameManager : Singleton<GameManager>
     }
   public void RestrartGame()
     {
+        Time.timeScale = 1f;
         _level = 1;
 
         //0 game sahnesinin idsi string olarak da eriþebilirdik.
@@ -39,6 +40,7 @@ public class GameManager : Singleton<GameManager>
     private void OnGameOver()
     {
         _isGameActive = false;
+        Time.timeScale = 0f;
     }
 
     private void OnEnable()

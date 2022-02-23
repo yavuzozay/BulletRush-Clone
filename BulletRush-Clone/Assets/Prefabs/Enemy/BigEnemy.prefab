@@ -13,6 +13,8 @@ GameObject:
   - component: {fileID: 6139751273013960473}
   - component: {fileID: 8823154920251501314}
   - component: {fileID: 246553830025992254}
+  - component: {fileID: 682583126946665830}
+  - component: {fileID: 8270637287965639708}
   m_Layer: 0
   m_Name: BigEnemy
   m_TagString: Enemy
@@ -109,5 +111,41 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _healValue: 200
-  _speed: 1
-  particleEffect: {fileID: 7304939447348793120, guid: 31eaa9c19a5ebee46a2e55865e7cdc3b, type: 3}
+  _speed: 20
+  emptyTargetPrefb: {fileID: 6502138064977469394, guid: 561375c805dfa0349bf7474cb39c8883, type: 3}
+  curTarget: 0
+--- !u!95 &682583126946665830
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8588923558989973603}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: e1d42c97ea443064ba82290b966256e1, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!54 &8270637287965639708
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8588923558989973603}
+  serializedVersion: 2
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_UseGravity: 1
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0

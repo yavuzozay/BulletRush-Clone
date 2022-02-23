@@ -22,7 +22,6 @@ public class PlayerController : MonoBehaviour
     void Update()
     {
         CheckInputs();
-        Debug.Log("v:"+verticalInput+"h"+horizontalInput);
     }
     private void FixedUpdate()
     {
@@ -31,11 +30,13 @@ public class PlayerController : MonoBehaviour
     }
     private void CheckInputs()
     {
-        horizontalInput = joystick.Horizontal;
-        verticalInput = joystick.Vertical;
-        horizontalInput = NormalizeInput(horizontalInput);
-        verticalInput = NormalizeInput(verticalInput);
-      
+      //  horizontalInput = joystick.Horizontal;
+        //verticalInput = joystick.Vertical;
+        horizontalInput = NormalizeInput(joystick.Horizontal);
+        verticalInput = NormalizeInput(joystick.Vertical);
+        //Debug.Log("v:"+verticalInput+"h"+horizontalInput); test
+
+
     }
     private void ApplyMovement()
     {
