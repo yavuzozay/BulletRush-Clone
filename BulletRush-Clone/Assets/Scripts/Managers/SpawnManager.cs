@@ -16,30 +16,31 @@ public class SpawnManager : Singleton<SpawnManager>
     }
     public int bigEnemyCount
     {
-        get { return _simpleEnemyCount; }
+        get { return _bigEnemyCount; }
 
     }
-    public void DecreaseSimpleEnemyCount(int amount)
+    
+    public void DecreaseSimpleEnemyCount()
     {
-        _simpleEnemyCount -= amount;
-        EventManager.Fire_OnSimpleEnemyCountChanged(_simpleEnemyCount);
+        _simpleEnemyCount --;
         CheckEnemyCount();
 
+        EventManager.Fire_OnSimpleEnemyCountChanged(_simpleEnemyCount);
 
     }
-    public void DecreaseBigEnemyCount(int amount)
+    public void DecreaseBigEnemyCount()
     {
-        _bigEnemyCount -= amount;
+        _bigEnemyCount--;
         EventManager.Fire_OnBigEnemyCountChanged(_bigEnemyCount);
         CheckEnemyCount();
 
     }
     private void CheckEnemyCount()
     {
-        if (_simpleEnemyCount <= 0 && _bigEnemyCount <= 0 && GameManager.Instance.isGameActive)
+        if (simpleEnemyCount <= 0 && bigEnemyCount <= 0 && GameManager.Instance.isGameActive)
         {
             EventManager.Fire_OnLevelCompleted();
-            Debug.Log(GameManager.Instance.isGameActive);
+            Debug.Log(simpleEnemyCount+""+bigEnemyCount);
         }
     }
 
@@ -51,6 +52,7 @@ public class SpawnManager : Singleton<SpawnManager>
     }
     private void Update()
     {
+      //  Debug.Log("k" + _simpleEnemyCount + "b" + _bigEnemyCount);
     }
     public void SpawnEnemy(int level)
     {

@@ -28,23 +28,22 @@ public abstract class Enemy : MonoBehaviour
         {
             Die();
         }
+        Bounds.Instance.CheckBounds(Bounds.Instance.GetGameBounds(), transform);
+
     }
     private void OnTriggerEnter(Collider other)
     {
         if (other.CompareTag("Bullet"))
         {
+           
             bullet = other.gameObject.GetComponent<Bullet>();
             if (bullet != null)
                 ChangeHP(bullet.damageVal);
+            Destroy(other.gameObject);
         }
     }
-    public virtual void Die()
-    {
-
-      //particle yerine animasyon kullanamyý tercih ettim  Instantiate(particleEffect, transform.position, particleEffect.transform.rotation);
-        Destroy(this.gameObject, .35f);
-
-    }
+   public abstract void Die();
+    
 
 
     protected abstract void Movement();

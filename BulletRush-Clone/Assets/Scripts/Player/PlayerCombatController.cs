@@ -36,21 +36,36 @@ public class PlayerCombatController : MonoBehaviour
     }
     private void FireAttack()
     {
+
         if (canAttack&&playerController.isFireBtnPressed)
         {
-            canAttack = false;
-            Instantiate(bullet, attackTransform.position, bullet.transform.rotation);
-            StartCoroutine(AttackTimer());
-
-
+             canAttack = false;
+             Instantiate(bullet, attackTransform.position, transform.rotation);
+             StartCoroutine(AttackTimer());
         }
+
     }
     IEnumerator AttackTimer()
     {
 
         //.25 saniye sonra tekrar atak yapabilir...
+        
             yield return new WaitForSeconds(.25f);
             canAttack = true;
+
+    }
+    void OnLevelCompleted()
+    {
+        canAttack = true;
+    }
+
+    private void OnEnable()
+    {
+        EventManager.OnLevelCompleted += OnLevelCompleted;
+    }
+    private void OnDisable()
+    {
+        EventManager.OnLevelCompleted -= OnLevelCompleted;
 
     }
 

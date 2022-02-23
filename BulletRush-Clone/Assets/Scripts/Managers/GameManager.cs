@@ -28,6 +28,7 @@ public class GameManager : Singleton<GameManager>
     public void LoadLevel()
     {
         SpawnManager.Instance.SpawnEnemy(_level);
+       
     }
   public void RestrartGame()
     {

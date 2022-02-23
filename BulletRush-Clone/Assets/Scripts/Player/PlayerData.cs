@@ -5,7 +5,6 @@ using UnityEngine;
 public class PlayerData : Singleton<PlayerData>
 {
     [SerializeField] private float speed;
-    
-
+    public float GetSpeed() { return speed; }
 
 }

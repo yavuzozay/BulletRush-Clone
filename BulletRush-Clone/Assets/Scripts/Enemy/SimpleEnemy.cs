@@ -23,11 +23,10 @@ public class SimpleEnemy : Enemy
         target = Vector3.Lerp(transform.position, playerTransform.position, Time.fixedDeltaTime*_speed/10);
         enemyRb.MovePosition(target);
     }
-     public override void Die()
+
+    public override void Die()
     {
-        SpawnManager.Instance.DecreaseBigEnemyCount(1);
-
-        base.Die();
+        SpawnManager.Instance.DecreaseSimpleEnemyCount();
+        Destroy(gameObject);
     }
-
 }

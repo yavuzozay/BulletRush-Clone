@@ -37,20 +37,25 @@ public class GameUI : MonoBehaviour
         PlayerData.Instance.gameObject.SetActive(true);
         GameOverPanel.SetActive(false);
         InGamePanel.SetActive(true);
+        LevelCompletedPanel.gameObject.SetActive(false);
+        GameManager.Instance.LoadLevel();
+        lvlTMpro.text = "level :" + GameManager.Instance.level;
+
 
     }
     private void OnSimpleEnemyCountChanged(int count)
     {
-        sEnemyCountTMPro.text = "Kalan düþman sayýsý :" + count;
+        sEnemyCountTMPro.text = "Kalan düsman ssayisi :" + count;
     }
     private void OnBigEnemyCountChanged(int count)
     {
-        bEnemyCountTMPro.text = "Kalan büyük düþman sayýsý :" + count;
+        bEnemyCountTMPro.text = "Kalan büyük düsman sayisi :" + count;
 
     }
     private void OnLevelCompleted()
     {
         InGamePanel.SetActive(false);
+        PlayerData.Instance.gameObject.SetActive(false);
 
         GameManager.Instance.IncreaseLevel();
         LevelCompletedPanel.gameObject.SetActive(true);

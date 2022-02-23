@@ -11,6 +11,7 @@ public class Bullet : MonoBehaviour
     //                     min,max value
     [SerializeField][Range(1f,5f)] private float speed;
     Rigidbody bulletRb;
+
     private void Awake()
     {
         bulletRb = GetComponent<Rigidbody>();
@@ -27,7 +28,7 @@ public class Bullet : MonoBehaviour
        * Ýmpulse modu tek seferlik güç uygulanacaðýnda kullanýlýr.
        * Zýplama,fýrlatma gibi durumlar için tercih edilebilir.
        */
-        bulletRb.AddForce(0, 0, power, ForceMode.Impulse);
+        bulletRb.AddForce(transform.forward, ForceMode.Impulse);
     }
 
 

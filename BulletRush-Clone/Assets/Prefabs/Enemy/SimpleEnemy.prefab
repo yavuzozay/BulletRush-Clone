@@ -111,7 +111,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _healValue: 100
-  _speed: 1
+  _speed: 5
 --- !u!95 &3475309813305097182
 Animator:
   serializedVersion: 3

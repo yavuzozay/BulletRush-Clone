@@ -22,6 +22,7 @@ public class PlayerController : MonoBehaviour
     void Update()
     {
         CheckInputs();
+        Bounds.Instance.CheckBounds(Bounds.Instance.GetPlayerBounds(), this.transform);
     }
     private void FixedUpdate()
     {
@@ -38,9 +39,10 @@ public class PlayerController : MonoBehaviour
 
 
     }
+   
     private void ApplyMovement()
     {
-        playerRb.velocity = new Vector3(horizontalInput, 0, verticalInput);
+        playerRb.velocity = new Vector3(horizontalInput, 0, verticalInput)*PlayerData.Instance.GetSpeed();//Vektörün sabitle çarðýmý..
     }
     private void RotateSmoothly()
     {

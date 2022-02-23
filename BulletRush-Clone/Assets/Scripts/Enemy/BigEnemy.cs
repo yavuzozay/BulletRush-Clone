@@ -59,11 +59,13 @@ public class BigEnemy : Enemy
 
     public override void Die()
     {
-        SpawnManager.Instance.DecreaseBigEnemyCount(1);
 
-        base.Die();
+        SpawnManager.Instance.DecreaseBigEnemyCount();
+
+        Destroy(gameObject);
+
     }
- private void AddTarget()
+    private void AddTarget()
     {
         float rndX = Random.Range(-2f, 2f);
         float rndz = Random.Range(-3f, -1f);
