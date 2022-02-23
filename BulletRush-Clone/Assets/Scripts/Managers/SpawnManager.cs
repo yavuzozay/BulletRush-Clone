@@ -36,9 +36,10 @@ public class SpawnManager : Singleton<SpawnManager>
     }
     private void CheckEnemyCount()
     {
-        if (_simpleEnemyCount <= 0 && _bigEnemyCount <= 0)
+        if (_simpleEnemyCount <= 0 && _bigEnemyCount <= 0 && GameManager.Instance.isGameActive)
         {
             EventManager.Fire_OnLevelCompleted();
+            Debug.Log(GameManager.Instance.isGameActive);
         }
     }
 

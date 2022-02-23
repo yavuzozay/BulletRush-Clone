@@ -6,8 +6,13 @@ using UnityEngine.SceneManagement;
 public class GameManager : Singleton<GameManager>
 {
 
-    private bool isGameActive;
+    private bool _isGameActive=true;
     private int _level=1;
+
+    public bool isGameActive
+    {
+        get { return _isGameActive; }
+    }
     public int level
     {
         get {return _level; }
@@ -26,7 +31,23 @@ public class GameManager : Singleton<GameManager>
     }
   public void RestrartGame()
     {
+        _level = 1;
+
         //0 game sahnesinin idsi string olarak da eriþebilirdik.
         SceneManager.LoadScene(0);
+    }
+    private void OnGameOver()
+    {
+        _isGameActive = false;
+    }
+
+    private void OnEnable()
+    {
+        EventManager.OnGameOver += OnGameOver;        
+    }
+    private void OnDisable()
+    {
+        EventManager.OnGameOver -= OnGameOver;
+
     }
 }

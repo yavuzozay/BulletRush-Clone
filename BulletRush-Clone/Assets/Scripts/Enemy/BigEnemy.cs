@@ -11,9 +11,12 @@ public class BigEnemy : Enemy
         
     }
 
-    private void OnDestroy()
+    private void Die()
     {
         SpawnManager.Instance.DecreaseBigEnemyCount(1);
-        base.OnDestroy();
+
+        base.Die();
     }
+  
+  
 }

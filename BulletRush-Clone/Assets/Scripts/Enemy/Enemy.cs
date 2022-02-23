@@ -22,15 +22,14 @@ public abstract class Enemy : MonoBehaviour
             Die();
         }
     }
-    private void Die()
+    protected virtual void Die()
     {
-            Destroy(this.gameObject, .35f);
-    }
-    //Patlama efekti
-    public virtual void OnDestroy()
-    {
+
         Instantiate(particleEffect, transform.position, particleEffect.transform.rotation);
+
+        Destroy(this.gameObject, .35f);
     }
+ 
 
     protected abstract void Movement();
 
