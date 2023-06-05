@@ -3127,5 +3127,17 @@ PrefabInstance:
       propertyPath: speed
       value: 5
       objectReference: {fileID: 0}
+    - target: {fileID: 2079187215792677263, guid: e31e0b169720cd3489009f097933bee2, type: 3}
+      propertyPath: _speed
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 8693352317451174466, guid: e31e0b169720cd3489009f097933bee2, type: 3}
+      propertyPath: _joystick
+      value: 
+      objectReference: {fileID: 2007349165}
+    - target: {fileID: 8693352317451174466, guid: e31e0b169720cd3489009f097933bee2, type: 3}
+      propertyPath: _fireButton
+      value: 
+      objectReference: {fileID: 1369845484}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e31e0b169720cd3489009f097933bee2, type: 3}

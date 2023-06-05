@@ -12,7 +12,7 @@ public class SimpleEnemy : Enemy
     private void Awake()
     {
         enemyRb = GetComponent<Rigidbody>();
-        playerTransform = PlayerData.Instance.transform;
+        playerTransform = Player.Instance.transform;
     }
     private void FixedUpdate()
     {

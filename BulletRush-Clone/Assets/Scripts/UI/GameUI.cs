@@ -39,7 +39,7 @@ public class GameUI : MonoBehaviour
     {
         joystick.SetActive(true);
         firebutton.SetActive(true);
-        PlayerData.Instance.gameObject.SetActive(true);
+        Player.Instance.gameObject.SetActive(true);
         GameOverPanel.SetActive(false);
         InGamePanel.SetActive(true);
         LevelCompletedPanel.gameObject.SetActive(false);

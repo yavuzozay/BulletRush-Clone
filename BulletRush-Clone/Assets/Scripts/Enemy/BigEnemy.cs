@@ -13,7 +13,7 @@ public class BigEnemy : Enemy
     private void Awake()
     {
         targets = new List<Transform>();
-        playerTransform = PlayerData.Instance.transform;
+        playerTransform = Player.Instance.transform;
         enemyRb = GetComponent<Rigidbody>();
     }
     private void Start()

@@ -9,8 +9,7 @@ public class FireButtonPressed : MonoBehaviour,IPointerDownHandler, IPointerUpHa
 
     private void Awake()
     {
-        playerController = PlayerData.Instance.gameObject.GetComponent<PlayerController>();/*Player data singleton olduðu için bu þekilde eriþebiliriz.
-                                                                                            * Player tagi ile de eriþebilirdik..*/
+        playerController = Player.Instance.gameObject.GetComponent<PlayerController>();
     }
    
     public void OnPointerDown(PointerEventData eventData)

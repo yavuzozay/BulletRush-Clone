@@ -22,15 +22,10 @@ public class PlayerCombatController : MonoBehaviour
         playerController = GetComponent<PlayerController>();
         attackTransform = transform.GetChild(0);
         animator = GetComponent<Animator>();
-
-
     }
 
 
-    private void Start()
-    {
-
-    }
+  
 
     private void Update()
     {
@@ -63,6 +58,7 @@ public class PlayerCombatController : MonoBehaviour
             isAttacking = true;
             isIdle = false;
              canAttack = false;
+            //pool sistemi eklenecek..
              Instantiate(bullet, attackTransform.position, transform.rotation);
              StartCoroutine(AttackTimer());
         }
@@ -75,9 +71,6 @@ public class PlayerCombatController : MonoBehaviour
     }
     IEnumerator AttackTimer()
     {
-
-        //.25 saniye sonra tekrar atak yapabilir...
-        
             yield return new WaitForSeconds(.15f);
             canAttack = true;
 

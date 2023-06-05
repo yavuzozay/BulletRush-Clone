@@ -9,14 +9,13 @@ public class CameraController : MonoBehaviour
 
     private void Awake()
     {
-        playerTransform = PlayerData.Instance.transform;
+        playerTransform = Player.Instance.transform;
     }
 
 
     private void LateUpdate()
     {
 
-        //Lateupdate updateden sonra çalýþýr bu sayede jittering yaþamayýz..
         FollowPlayer();
     }
     void FollowPlayer()
